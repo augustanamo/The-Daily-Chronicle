@@ -1,0 +1,5 @@
+{
+  "name": "The Daily Chronicle",
+  "description": "A classic newspaper-style daily news reader powered by Gemini.",
+  "requestFramePermissions": []
+}

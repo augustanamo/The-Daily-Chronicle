@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Daily Chronicle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+SC:wght@400;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Lora"', '"Noto Serif SC"', 'serif'],
+              display: ['"Playfair Display"', '"Noto Serif SC"', 'serif'],
+              wizard: ['"Cinzel Decorative"', '"Noto Serif SC"', 'cursive'],
+              modern: ['"Montserrat"', '"Noto Sans SC"', 'sans-serif'],
+            },
+            colors: {
+              paper: '#f4f1ea',
+              ink: '#1a1a1a',
+              parchment: '#e3d4ad',
+              mag: '#ffffff',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #f4f1ea; /* Default fallback */
+        color: #1a1a1a;
+        transition: background-color 0.5s ease;
+      }
+      /* Custom scrollbar for a cleaner look */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #b5b0a3; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8f8b80; 
+      }
+      
+      .drop-cap:first-letter {
+        float: left;
+        font-size: 3.5rem;
+        line-height: 0.8;
+        padding-top: 4px;
+        padding-right: 8px;
+        padding-left: 3px;
+        font-family: "Playfair Display", "Noto Serif SC", serif;
+        font-weight: 700;
+      }
+
+      /* Wizard Theme Animations & Effects */
+      @keyframes wizard-move {
+        0% { transform: scale(1.1) translate(0, 0); }
+        25% { transform: scale(1.15) translate(1%, 1%); }
+        50% { transform: scale(1.1) translate(-1%, 2%); }
+        75% { transform: scale(1.15) translate(-2%, -1%); }
+        100% { transform: scale(1.1) translate(0, 0); }
+      }
+
+      .wizard-img-container {
+        position: relative;
+        overflow: hidden;
+        filter: sepia(0.3) contrast(1.1); /* Lighter sepia, no darkening */
+      }
+      
+      .wizard-img-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+        pointer-events: none;
+        mix-blend-mode: overlay;
+      }
+
+      .wizard-img {
+        /* Slow Ken Burns effect */
+        animation: wizard-move 20s ease-in-out infinite alternate;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform-origin: center center;
+        will-change: transform;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
